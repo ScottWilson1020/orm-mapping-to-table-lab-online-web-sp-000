@@ -4,6 +4,23 @@ class Student
   #  with DB[:conn]  
   
   
-  attr_accessor (:name, :grade)
+  attr_accessor :name, :grade
+  
+  def initialize( name, grade)
+    
+  end 
+  
+  def create_table()
+  end 
+  
+  
+  def drop_table()
+  end 
+  
+  def save()
+    
+  end 
+  
+  
   
 end
