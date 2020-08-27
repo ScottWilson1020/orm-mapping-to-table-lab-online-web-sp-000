@@ -19,10 +19,17 @@ def initialize(name, grade, id=nil)
   def drop_table()
   end 
   
-  def save()
-    
-  end 
-  
+  def save
+    sql = <<-SQL
+      INSERT INTO songs (name, grade) 
+      VALUES (?, ?)
+    SQL
+ 
+    DB[:conn].execute(sql, self.name, self.grade)
+ 
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
+ 
+  end
   
   
 end
