@@ -33,7 +33,7 @@ def initialize(name, grade, id=nil)
     DB[:conn].execute(sql)  
   end 
   
-  def save
+  def self.save
     sql = <<-SQL
       INSERT INTO student (name, grade) 
       VALUES (?, ?)
@@ -41,7 +41,7 @@ def initialize(name, grade, id=nil)
  
     DB[:conn].execute(sql, self.name, self.grade)
  
-    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
  
   end
   
